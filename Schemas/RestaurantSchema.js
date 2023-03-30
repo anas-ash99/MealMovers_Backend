@@ -5,6 +5,11 @@ const restaurantSchema = new mongoose.Schema({
     deliveryPrice: String,
     categories: [String],
     deliveryTime: String,
+    menu_items:[{
+        name: String,
+        price:String,
+        description: String
+    }],
     createdAt: {
         type: Date,
         default: new Date()
