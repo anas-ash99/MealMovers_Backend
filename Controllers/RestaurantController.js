@@ -17,7 +17,7 @@ export const addMenuItem = async (req, res)=>{
     // console.log(req.body);
     const item = req.body
     let restaurant = await Restaurant.findById(item.resId);
-    restaurant.menu_item.push(req.body);
+    restaurant.menu_items.push(req.body);
     restaurant.save();
     res.status(200).json(restaurant);
 

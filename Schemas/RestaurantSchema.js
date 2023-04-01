@@ -8,7 +8,11 @@ const restaurantSchema = new mongoose.Schema({
     menu_items:[{
         name: String,
         price:String,
-        description: String
+        description: String,
+        imageUrl:{
+            default: "",
+            type: String
+        },
     }],
     createdAt: {
         type: Date,
