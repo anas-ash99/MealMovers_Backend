@@ -5,6 +5,7 @@ import http from "http";
 import cors from "cors";
 import Restaurant from "./Schemas/RestaurantSchema.js";
 import restaurantRouter from "./Routes/RestaurantsRoutes.js";
+import orderRouter from "./Routes/OrderRoutes.js";
 const app = express();
 dotenv.config()
 const server = http.createServer(app);
@@ -23,6 +24,7 @@ const connectDb = async ()=>{
 
 
 app.use("/restaurants",restaurantRouter);
+app.use("/order", orderRouter);
 app.get("/", async (req, res)=>{
     //  const rests = await Restaurant.find()
         
