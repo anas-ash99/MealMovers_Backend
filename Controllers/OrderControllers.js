@@ -23,7 +23,6 @@ export const get_orders_for_restaurant= async (req, res) =>{
    
     try {
       const {resId} = req.params;
-      console.log(resId);
       const orders = await Order.find({restaurant_id: resId});
       res.status(200).json(orders);
  
