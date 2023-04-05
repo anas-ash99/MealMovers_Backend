@@ -19,6 +19,12 @@ const orderSchema = new mongoose.Schema({
        zipCode:String,
        phoneNumber:String
     },
+    items:[{
+        name: String,
+        price:String,
+        description: String,
+        quantity: Number
+    }],
     created_at: {
         type: Date,
         default: new Date()
