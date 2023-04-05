@@ -4,7 +4,7 @@ import { addMenuItem, getAllRestaurants } from "../Controllers/RestaurantControl
 const router = express.Router();
 
 
-router.get("/get_all_restaurnats", getAllRestaurants);
+router.get("/get_all_restaurants", getAllRestaurants);
 router.post("/add_menu_item", addMenuItem);
 
 
