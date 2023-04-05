@@ -18,3 +18,18 @@ export const create_new_order = async (req, res) =>{
         res.status(400).json(error);
     }
 }
+
+export const get_orders_for_restaurant= async (req, res) =>{
+   
+    try {
+      const {resId} = req.params;
+      console.log(resId);
+      const orders = await Order.find({resturant_id: resId});
+      res.status(200).json(orders);
+ 
+
+    } catch (error) {
+        console.log(error);
+        res.status(400).json(error);
+    }
+}

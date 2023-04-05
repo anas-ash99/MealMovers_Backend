@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 const orderSchema = new mongoose.Schema({
 
-    resturant_id:String,
+    restaurant_id:String,
     customer_name:String,
     orderPrice: String,
     deliveryTime: String,
