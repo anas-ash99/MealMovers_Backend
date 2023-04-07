@@ -10,7 +10,7 @@ export const create_new_order = async (req, res) =>{
      
       var order = req.body;
       order = new Order(order);
-      order.save();
+      // order.save();
       res.status(200).json(order);
      
 
