@@ -39,6 +39,7 @@ export const get_orders_for_restaurant= async (req, res) =>{
     
       const {resId} = req.params;
       const orders = await Order.find({restaurant_id: resId, created_at: {$gte: startOfToday}});
+      orders.reverse()
       res.status(200).json(orders);
       
   
