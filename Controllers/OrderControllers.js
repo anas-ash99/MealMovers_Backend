@@ -10,7 +10,7 @@ export const create_new_order = async (req, res) =>{
      
       var order = req.body;
       order = new Order(order);
-      // order.save();
+      order.save();
       res.status(200).json(order);
      
 
@@ -47,4 +47,26 @@ export const get_orders_for_restaurant= async (req, res) =>{
         console.log(error);
         res.status(400).json(error);
     }
+}
+
+
+export const update_order_status = async (req, res) =>{
+   
+  try {
+     
+    const {orderId,status} = req.params
+    var order = await Order.findById(orderId);
+
+    order.status = status; 
+
+    order.save();
+   
+    res.status(200).json(order);
+    
+
+
+  } catch (error) {
+      console.log(error);
+      res.status(400).json(error);
+  }
 }
