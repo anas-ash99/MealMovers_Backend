@@ -23,26 +23,20 @@ export const create_new_order = async (req, res) =>{
 }
 
 export const get_orders_for_restaurant= async (req, res) =>{
-   
-    try {
+  const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
-      function toTimeZone(time, zone) {
-        var format = 'YYYY/MM/DD HH:mm:ss ZZ';
-        return moment(time, format).tz(zone).format(format);
-    }
+  
+ 
+    try {
       var now = new Date()
-      // .toLocaleString('en-US', { timeZone: "Europe/Berlin" });
-      // now = toTimeZone(now, "Europe/Berlin")
-      
-      // now = moment.tz(now, "Europe/Berlin");
-      var startOfToday = moment().startOf('day').format()
+       let month = months[now.getMonth()];
+      var dateString = month + " " + now.getDate() + ", " + now.getFullYear() + " 13:00:00" 
+      var date = new Date( dateString)
       const {resId} = req.params;
-      const orders = await Order.find({restaurant_id: resId, ordered_at: {$gte: startOfToday}});
+      const orders = await Order.find({restaurant_id: resId, ordered_at: {$gte: date}});
       orders.reverse()
       res.status(200).json(orders);
-      
-  
-
+    
     } catch (error) {
         console.log(error);
         res.status(400).json(error);
