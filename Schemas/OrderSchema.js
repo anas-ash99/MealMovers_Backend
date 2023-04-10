@@ -25,11 +25,8 @@ const orderSchema = new mongoose.Schema({
         description: String,
         quantity: Number
     }],
-    created_at: {
-        type: Date,
-
-    }
-
+    ordered_at: Date,
+    created_at: String
 })
 
 

@@ -11,7 +11,8 @@ export const create_new_order = async (req, res) =>{
       var order = req.body;
       order = new Order(order);
       var now = new Date()
-      order.created_at = moment.tz(now, "Europe/Berlin").format()
+      // order.created_at = moment.tz(now, "Europe/Berlin").format();
+      order.ordered_at = moment.tz(now, "Europe/Berlin").format();
       order.save();
       res.status(200).json(order);
 
@@ -34,12 +35,9 @@ export const get_orders_for_restaurant= async (req, res) =>{
       // now = toTimeZone(now, "Europe/Berlin")
       
       // now = moment.tz(now, "Europe/Berlin");
-
-      console.log(moment.tz(now, "Europe/Berlin").format());
       var startOfToday = moment().startOf('day').format()
-    
       const {resId} = req.params;
-      const orders = await Order.find({restaurant_id: resId, created_at: {$gte: startOfToday}});
+      const orders = await Order.find({restaurant_id: resId, ordered_at: {$gte: startOfToday}});
       orders.reverse()
       res.status(200).json(orders);
       
