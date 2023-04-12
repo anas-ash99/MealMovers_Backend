@@ -26,3 +26,18 @@ export const addMenuItem = async (req, res)=>{
     res.status(400).json(error);
   }
 } 
+
+export const create_new_restaurant = async (req, res)=>{
+  try {
+   
+    var rest = req.body;
+    rest.createdAt = new Date();    
+    rest = new Restaurant(rest)
+    res.json(rest);
+    rest.save()
+
+  } catch (error) {
+    console.log(error);
+    res.status(400).json(error);
+  }
+} 
