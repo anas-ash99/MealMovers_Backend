@@ -66,3 +66,17 @@ export const update_order_status = async (req, res) =>{
       res.status(400).json(error);
   }
 }
+
+export const get_all_orders = async (req, res) =>{
+   
+  try {
+    let orders = await Order.find()
+    res.status(200).json(orders);
+    
+
+
+  } catch (error) {
+      console.log(error);
+      res.status(400).json(error);
+  }
+}
