@@ -10,6 +10,7 @@ const orderSchema = new mongoose.Schema({
     paymentStatus:String,
     status:String,
     type:String,
+    isScheduled: Boolean,
     address:{
        name:String,
        streetName: String,
@@ -17,7 +18,7 @@ const orderSchema = new mongoose.Schema({
        houseNumber:String,
        instruction:String,
        zipCode:String,
-       phoneNumber:String
+       phoneNumber:String,
     },
     items:[{
         name: String,
