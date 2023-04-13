@@ -30,7 +30,7 @@ export const get_orders_for_restaurant= async (req, res) =>{
     try {
       var now = new Date()
        let month = months[now.getMonth()];
-      var dateString = month + " " + now.getDate() + ", " + now.getFullYear() + " 13:00:00" 
+      var dateString = month + " " + now.getDate() + ", " + now.getFullYear() + " 09:00:00" 
       
       var date = new Date(dateString)
       console.log(date);
