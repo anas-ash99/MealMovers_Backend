@@ -73,6 +73,7 @@ export const get_all_orders = async (req, res) =>{
    
   try {
     let orders = await Order.find()
+    orders.reverse()
     res.status(200).json(orders);
     
 
