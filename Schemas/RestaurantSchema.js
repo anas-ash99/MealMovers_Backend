@@ -5,6 +5,10 @@ const restaurantSchema = new mongoose.Schema({
     deliveryPrice: String,
     categories: [String],
     deliveryTime: String,
+    image_url: {
+        type: String,
+        default: ""
+    },
     menu_items:[{
         name: String,
         price:String,
