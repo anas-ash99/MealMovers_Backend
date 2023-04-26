@@ -26,19 +26,8 @@ const connectDb = async ()=>{
 app.use("/restaurants",restaurantRouter);
 app.use("/order", orderRouter);
 app.get("/", async (req, res)=>{
-    //  const rests = await Restaurant.find()
-        
-    //     const rest = new Restaurant({
-    //         name: "Sushibar",
-    //         categories: ["sushi", "asian", "soup"],
-    //         createdAt: new Date(),
-    //         deliveryPrice: "3.99",
-    //         deliveryTime: "40-50"
 
-    //     })
-        // res.json(rest);
-        // rest.save()
-        res.send("hello to my app")
+        res.status(200).json({message: "Hi there"})
       
 })
 server.listen(process.env.PORT || 5000, ()=>{
