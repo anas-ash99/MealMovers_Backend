@@ -5,6 +5,7 @@ const orderSchema = new mongoose.Schema({
 
     restaurant_id:String,
     customer_name:String,
+    customer_id:String,
     orderPrice: String,
     deliveryTime: String,
     paymentStatus:String,
