@@ -5,6 +5,7 @@ import http from "http";
 import cors from "cors";
 import Restaurant from "./Schemas/RestaurantSchema.js";
 import restaurantRouter from "./Routes/RestaurantsRoutes.js";
+import userRouter from "./Routes/UserRoutes.js";
 import orderRouter from "./Routes/OrderRoutes.js";
 const app = express();
 dotenv.config()
@@ -25,6 +26,7 @@ const connectDb = async ()=>{
 
 app.use("/restaurants",restaurantRouter);
 app.use("/order", orderRouter);
+app.use("/user", userRouter);
 app.get("/", async (req, res)=>{
 
         res.status(200).json({message: "Hi there"})

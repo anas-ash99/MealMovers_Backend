@@ -34,7 +34,6 @@ export const get_orders_for_restaurant= async (req, res) =>{
       var dateString = month + " " + now.getDate() + ", " + now.getFullYear() + " 00:00:00" 
       
       var date = new Date(dateString)
-      console.log(date);
       const {resId} = req.params;
       const orders = await Order.find({restaurant_id: resId, ordered_at: {$gte: date}});
       // const orders = await Order.find({restaurant_id: resId});
