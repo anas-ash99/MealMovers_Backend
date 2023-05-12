@@ -83,3 +83,17 @@ export const get_all_orders = async (req, res) =>{
       res.status(400).json(error);
   }
 }
+
+
+export const get_order_by_id = async (req, res) =>{
+   
+  try {
+    const {id} = req.params
+    let order = await Order.findById(id)
+    res.status(200).json(order);
+    
+  } catch (error) {
+      console.log(error);
+      res.status(400).json(error);
+  }
+}
