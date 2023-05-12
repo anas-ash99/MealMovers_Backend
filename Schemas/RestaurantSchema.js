@@ -5,9 +5,21 @@ const restaurantSchema = new mongoose.Schema({
     deliveryPrice: String,
     categories: [String],
     deliveryTime: String,
+    phoneNumber:String,
     image_url: {
         type: String,
         default: ""
+    },
+    address:{
+        longitude:Number,
+        latitude:Number,
+        streetName: String,
+        city:String,
+        houseNumber:String,
+        instruction:String,
+        zipCode:String,
+      
+        
     },
     menu_items:[{
         name: String,

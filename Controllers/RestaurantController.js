@@ -33,9 +33,22 @@ export const create_new_restaurant = async (req, res)=>{
     var rest = req.body;
     rest.createdAt = new Date();    
     rest = new Restaurant(rest)
-    res.json(rest);
+    res.status(200).json(rest);
     rest.save()
+  } catch (error) {
+    console.log(error);
+    res.status(400).json(error);
+  }
+} 
 
+
+
+export const getRestaurantById = async (req, res)=>{
+  try {
+    // console.log(req.body);
+    const {id} = req.params
+    let restaurant = await Restaurant.findById(id);
+    res.status(200).json(restaurant);
   } catch (error) {
     console.log(error);
     res.status(400).json(error);
