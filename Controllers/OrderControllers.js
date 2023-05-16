@@ -90,7 +90,7 @@ export const get_order_for_user = async (req, res) =>{
      const{userId} = req.params
 
          
-    let orders = await Order.findOne({usreId:userId})
+    let orders = await Order.find({usreId:userId})
     orders.reverse()
     res.status(200).json(orders);
   
