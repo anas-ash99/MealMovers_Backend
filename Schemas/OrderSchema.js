@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 const orderSchema = new mongoose.Schema({
 
     restaurant_id:String,
+    restaurantName:String,
     customer_name:String,
     customer_id:String,
     orderPrice: String,
