@@ -12,6 +12,7 @@ const orderSchema = new mongoose.Schema({
     status:String,
     type:String,
     isScheduled: Boolean,
+    userId:String,
     address:{
        name:String,
        streetName: String,

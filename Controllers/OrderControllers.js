@@ -84,6 +84,22 @@ export const get_all_orders = async (req, res) =>{
   }
 }
 
+export const get_order_for_user = async (req, res) =>{
+   
+  try {
+     const{userId} = req.params
+
+         
+    let orders = await Order.findOne({usreId:userId})
+    orders.reverse()
+    res.status(200).json(orders);
+  
+  } catch (error) {
+      console.log(error);
+      res.status(400).json(error);
+  }
+}
+
 
 export const get_order_by_id = async (req, res) =>{
    

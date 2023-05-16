@@ -19,7 +19,6 @@ const restaurantSchema = new mongoose.Schema({
         instruction:String,
         zipCode:String,
       
-        
     },
     menu_items:[{
         name: String,
