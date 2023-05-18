@@ -24,7 +24,7 @@ export const createNewUser = async (req, res)=>{
         console.log(user.password);
         user.createdAt = new Date()
         user = new User(user)
-        // user.save()
+        user.save()
         res.status(200).json({message: "User created", ...User._doc})
       }
 
