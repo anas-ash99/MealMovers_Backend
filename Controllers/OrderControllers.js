@@ -12,10 +12,11 @@ export const create_new_order = async (req, res) =>{
       order = new Order(order);
       var now = new Date()
       // order.created_at = moment.tz(now, "Europe/Berlin").format();
-      order._id = null
+     
       order.ordered_at = moment.tz(now, "Europe/Berlin").format();
       order.save();
       res.status(200).json(order);
+      console.log(order);
 
     } catch (error) {
         console.log(error);
